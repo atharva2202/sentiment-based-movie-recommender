@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Welcome to Sentiment Based Movie Recommendation System</title>
+    <style>
+      /* Reset default styles */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      /* Basic styles */
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #000;
+        color: #fff;
+      }
+
+      .container {
+        max-width: 800px;
+        margin: 50px auto;
+        background-color: #333;
+        border-radius: 8px;
+        padding: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+      }
+
+      header {
+        text-align: center;
+        margin-bottom: 30px;
+      }
+
+      h1 {
+        color: #fff;
+      }
+
+      .button-container {
+        display: flex;
+        justify-content: center;
+      }
+
+      .btn {
+        display: inline-block;
+        padding: 12px 20px;
+        margin: 10px;
+        text-decoration: none;
+        color: #fff;
+        background-color: #007bff;
+        border: none;
+        border-radius: 4px;
+        transition: background-color 0.3s ease;
+      }
+
+      .btn:hover {
+        background-color: #0056b3;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>Welcome to Sentiment Based Movie Recommendation System</h1>
+      </header>
+      <div class="button-container">
+        <a href="{{ url_for('view_movies') }}" class="btn">View Movies</a>
+        <a
+          href="{{ url_for('get_sentiment_based_recommendation') }}"
+          class="btn"
+          >Get Sentiment Based Recommendation</a
+        >
+      </div>
+    </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+  </body>
+</html>
