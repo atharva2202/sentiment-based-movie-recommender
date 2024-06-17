@@ -2,92 +2,172 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Sentiment Based Movie Recommendation Form</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sentiment-Based Movie Recommendation Form</title>
     <style>
-      /* Reset default styles */
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-
-      /* Basic styles */
       body {
         font-family: Arial, sans-serif;
-        background-color: #000;
-        color: #fff;
+        background-color: #000000;
+        color: #ffffff;
+        padding: 20px;
+        margin: 0;
       }
 
       h1 {
         text-align: center;
-        margin: 30px 0;
-        color: #007bff;
-      }
-
-      .container {
-        max-width: 600px;
-        margin: 0 auto;
-        background-color: rgba(255, 255, 255, 0.1);
-        padding: 30px;
-        border-radius: 8px;
-        box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+        color: #ffffff;
       }
 
       form {
-        display: flex;
-        flex-direction: column;
+        background-color: #1f1f1f;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+        max-width: 600px;
+        margin: 0 auto;
       }
 
       label {
-        font-weight: bold;
+        display: block;
         margin-bottom: 10px;
+        font-weight: bold;
       }
 
-      input[type="text"],
       select {
-        padding: 10px;
-        margin-bottom: 20px;
+        display: block;
+        width: 100%;
+        padding: 8px;
         border: 1px solid #ccc;
         border-radius: 4px;
-        font-size: 16px;
-        width: 100%;
-        background-color: #111;
-        color: #fff;
+        box-sizing: border-box;
+        margin-bottom: 20px;
+        background-color: #333333;
+        color: #ffffff;
       }
 
-      button[type="submit"] {
-        padding: 12px 20px;
-        border: none;
-        border-radius: 4px;
-        background-color: #007bff;
-        color: #fff;
-        font-size: 16px;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
-      }
-
-      button[type="submit"]:hover {
-        background-color: #0056b3;
+      select option {
+        background-color: #333333;
+        color: #ffffff;
       }
     </style>
   </head>
   <body>
-    <h1>Sentiment Based Movie Recommendation Form</h1>
-    <div class="container">
-      <form action="/process_recommendation" method="POST">
-        <label for="movie_name">Enter a movie name:</label>
-        <input type="text" id="movie_name" name="movie_name" required />
-        <br /><br />
-        <label for="sentiment">Select sentiment:</label>
-        <select id="sentiment" name="sentiment" required>
-          <option value="positive">Positive</option>
-          <option value="negative">Negative</option>
-          <option value="neutral">Neutral</option>
-        </select>
-        <br /><br />
-        <button type="submit">Get Recommendations</button>
-      </form>
-    </div>
-    <script src="{{ url_for('static', filename='script.js') }}"></script>
+    <h1>Sentiment-Based Movie Recommendation Form</h1>
+    <form>
+      <label for="overall_mood"
+        >How would you describe your overall mood right now?</label
+      >
+      <select id="overall_mood">
+        <option>Happy/Positive</option>
+        <option>Sad/Negative</option>
+        <option>Stressed/Anxious</option>
+        <option>Relaxed/Calm</option>
+      </select>
+
+      <label for="movie_genre"
+        >What genre of movies do you typically prefer?</label
+      >
+      <select id="movie_genre">
+        <option>Action/Adventure</option>
+        <option>Comedy</option>
+        <option>Drama</option>
+        <option>Romance</option>
+        <option>Horror</option>
+        <option>Sci-Fi/Fantasy</option>
+        <option>Documentary</option>
+      </select>
+
+      <label for="movie_length">What is your preferred movie length?</label>
+      <select id="movie_length">
+        <option>Under 90 minutes</option>
+        <option>90-120 minutes</option>
+        <option>120-150 minutes</option>
+        <option>Over 150 minutes</option>
+      </select>
+
+      <label for="tone_preference"
+        >Do you prefer movies with a serious or light-hearted tone?</label
+      >
+      <select id="tone_preference">
+        <option>Serious/Thought-provoking</option>
+        <option>Light-hearted/Feel-good</option>
+        <option>A mix of both</option>
+      </select>
+
+      <label for="critical_acclaim"
+        >How important is the movie's critical acclaim to you?</label
+      >
+      <select id="critical_acclaim">
+        <option>Very important</option>
+        <option>Somewhat important</option>
+        <option>Not important</option>
+      </select>
+
+      <label for="plot_complexity"
+        >Do you prefer movies with a complex or straightforward plot?</label
+      >
+      <select id="plot_complexity">
+        <option>Complex/Intricate</option>
+        <option>Straightforward/Easy to follow</option>
+      </select>
+
+      <label for="controversial_topics"
+        >How do you feel about movies that tackle sensitive or controversial
+        topics?</label
+      >
+      <select id="controversial_topics">
+        <option>Interested/Open to exploring</option>
+        <option>Neutral</option>
+        <option>Prefer to avoid</option>
+      </select>
+
+      <label for="movie_setting">What is your preferred movie setting?</label>
+      <select id="movie_setting">
+        <option>Contemporary/Modern</option>
+        <option>Historical</option>
+        <option>Futuristic/Sci-Fi</option>
+        <option>Fantasy</option>
+      </select>
+
+      <label for="visual_style"
+        >How important is the movie's visual style and cinematography to
+        you?</label
+      >
+      <select id="visual_style">
+        <option>Very important</option>
+        <option>Somewhat important</option>
+        <option>Not important</option>
+      </select>
+
+      <label for="pace_preference"
+        >Do you prefer movies with a slower or faster pace?</label
+      >
+      <select id="pace_preference">
+        <option>Slower/More deliberate</option>
+        <option>Faster/Action-packed</option>
+      </select>
+
+      <label for="ending_preference"
+        >How do you feel about movies with open or ambiguous endings?</label
+      >
+      <select id="ending_preference">
+        <option>Enjoy the mystery/Thought-provoking</option>
+        <option>Prefer clear resolutions</option>
+        <option>Neutral</option>
+      </select>
+
+      <label for="language_preference"
+        >What is your preferred movie language?</label
+      >
+      <select id="language_preference">
+        <option>English</option>
+        <option>Spanish</option>
+        <option>French</option>
+        <option>German</option>
+        <option>Japanese</option>
+        <option>Hindi</option>
+        <option>Other</option>
+      </select>
+    </form>
   </body>
 </html>
