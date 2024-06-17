@@ -1,0 +1,71 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #141414;
+  color: #ffffff;
+  padding: 20px;
+  margin: 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.movie-card {
+  background-color: #333;
+  margin: 15px;
+  padding: 20px;
+  width: calc(33.33% - 30px);
+  box-sizing: border-box;
+  transition: transform 0.3s ease-in-out;
+  position: relative;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.movie-card h4 {
+  margin: 0;
+  font-size: 1.5em;
+}
+
+.movie-card:hover {
+  transform: scale(1.05);
+  z-index: 1;
+}
+
+.movie-details {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.9);
+  padding: 20px;
+  box-sizing: border-box;
+  overflow-y: auto;
+  border-radius: 0 0 8px 8px;
+}
+
+.movie-card:hover .movie-details {
+  display: block;
+}
+
+/* Clear floats for every third movie card to start a new row */
+@media (max-width: 992px) {
+  .movie-card {
+    width: calc(50% - 30px);
+  }
+}
+
+@media (max-width: 768px) {
+  .movie-card {
+    width: 100%;
+    margin: 15px 0;
+  }
+}

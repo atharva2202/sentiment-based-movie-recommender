@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Movie Cards</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='styles.css') }}"
+    />
+  </head>
+  <body>
+    <h1
+      class="heading"
+      style="color: red; text-align: center; margin-top: 20px"
+    >
+      Sentiment Based Movie Recommendation System
+    </h1>
+
+    <div class="container">
+      <div class="row">
+        {% for movie in movies %}
+        <div class="movie-card">
+          <h4>{{ movie[0] }}</h4>
+          <!-- Movie title -->
+          <div class="movie-details">
+            <p><strong>Overview:</strong> {{ movie[4] }}</p>
+            <!-- Overview -->
+            <p><strong>Runtime:</strong> {{ movie[2] }} minutes</p>
+            <!-- Runtime -->
+            <p><strong>Language:</strong> {{ movie[3] }}</p>
+            <!-- Language -->
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+  </body>
+</html>
